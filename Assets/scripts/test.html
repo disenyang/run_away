@@ -1,0 +1,18 @@
+<script>
+function webSocket(){
+　　if("WebSocket" in window){
+　　　　console.log("您的浏览器支持WebSocket");
+　　　　var ws = new WebSocket("ws://139.196.40.161:8081/majiang_zxw/websocket/majiang"); //创建WebSocket连接
+　　　　//...
+      setTimeout(()=>{
+        ws.send('测试消息',(res)=>{
+            //res为send的返回值（类似于response）
+        })
+      },1000);
+        
+　　}else{
+　　　　console.log("您的浏览器不支持WebSocket");
+　　}
+}
+webSocket();
+</script>

@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: 2efeecc3aafec49aebc26a42e1f7ac1c
+timeCreated: 1591159223
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: arch40_075_43
+    100002: arch40_075_44
+    100004: arch40_075_45
+    100006: arch40_075_46
+    100008: arch40_075_47
+    100010: arch40_075_48
+    100012: arch40_075_49
+    100014: arch40_075_50
+    100016: arch40_075_51
+    100018: arch40_075_52
+    100020: arch40_075_53
+    100022: arch40_075_54
+    100024: arch40_075_55
+    100026: arch40_075_56
+    100028: arch40_075_57
+    100030: arch40_075_58
+    100032: arch40_075_59
+    100034: arch40_075_60
+    100036: arch40_075_61
+    100038: arch40_075_62
+    100040: arch40_075_63
+    100042: arch40_075_64
+    100044: //RootNode
+    400000: arch40_075_43
+    400002: arch40_075_44
+    400004: arch40_075_45
+    400006: arch40_075_46
+    400008: arch40_075_47
+    400010: arch40_075_48
+    400012: arch40_075_49
+    400014: arch40_075_50
+    400016: arch40_075_51
+    400018: arch40_075_52
+    400020: arch40_075_53
+    400022: arch40_075_54
+    400024: arch40_075_55
+    400026: arch40_075_56
+    400028: arch40_075_57
+    400030: arch40_075_58
+    400032: arch40_075_59
+    400034: arch40_075_60
+    400036: arch40_075_61
+    400038: arch40_075_62
+    400040: arch40_075_63
+    400042: arch40_075_64
+    400044: //RootNode
+    2100000: arch40_075_014
+    2100002: arch40_075_015
+    2300000: arch40_075_43
+    2300002: arch40_075_44
+    2300004: arch40_075_45
+    2300006: arch40_075_46
+    2300008: arch40_075_47
+    2300010: arch40_075_48
+    2300012: arch40_075_49
+    2300014: arch40_075_50
+    2300016: arch40_075_51
+    2300018: arch40_075_52
+    2300020: arch40_075_53
+    2300022: arch40_075_54
+    2300024: arch40_075_55
+    2300026: arch40_075_56
+    2300028: arch40_075_57
+    2300030: arch40_075_58
+    2300032: arch40_075_59
+    2300034: arch40_075_60
+    2300036: arch40_075_61
+    2300038: arch40_075_62
+    2300040: arch40_075_63
+    2300042: arch40_075_64
+    3300000: arch40_075_43
+    3300002: arch40_075_44
+    3300004: arch40_075_45
+    3300006: arch40_075_46
+    3300008: arch40_075_47
+    3300010: arch40_075_48
+    3300012: arch40_075_49
+    3300014: arch40_075_50
+    3300016: arch40_075_51
+    3300018: arch40_075_52
+    3300020: arch40_075_53
+    3300022: arch40_075_54
+    3300024: arch40_075_55
+    3300026: arch40_075_56
+    3300028: arch40_075_57
+    3300030: arch40_075_58
+    3300032: arch40_075_59
+    3300034: arch40_075_60
+    3300036: arch40_075_61
+    3300038: arch40_075_62
+    3300040: arch40_075_63
+    3300042: arch40_075_64
+    4300000: arch40_075_43
+    4300002: arch40_075_44
+    4300004: arch40_075_45
+    4300006: arch40_075_46
+    4300008: arch40_075_47
+    4300010: arch40_075_48
+    4300012: arch40_075_49
+    4300014: arch40_075_50
+    4300016: arch40_075_51
+    4300018: arch40_075_52
+    4300020: arch40_075_53
+    4300022: arch40_075_54
+    4300024: arch40_075_55
+    4300026: arch40_075_56
+    4300028: arch40_075_57
+    4300030: arch40_075_58
+    4300032: arch40_075_59
+    4300034: arch40_075_60
+    4300036: arch40_075_61
+    4300038: arch40_075_62
+    4300040: arch40_075_63
+    4300042: arch40_075_64
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
