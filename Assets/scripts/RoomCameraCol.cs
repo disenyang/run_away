@@ -21,7 +21,6 @@ public class RoomCameraCol : MonoBehaviour {
       cameraRotation = new Vector3(54.45f,0f,0f);
       cameraPosition = new Vector3(0.13f,12.15f,-3.913f);
       DeltAngle = cameraRotation;
-      Invoke("moveInit",0.3f);
     }
     
     void moveInit(){
@@ -42,17 +41,18 @@ public class RoomCameraCol : MonoBehaviour {
     } 
  
     void LateUpdate() {
-        if (IsDrag) {
-            MouseStart = MouseEnd;
-            MouseEnd = Input.mousePosition;
-            DeltAngle.x -= (MouseEnd.y - MouseStart.y) / 7;
-            DeltAngle.y += (MouseEnd.x - MouseStart.x) / 7;
-            gameObject.transform.localEulerAngles = DeltAngle;
-            delt = gameObject.transform.localEulerAngles.y * PI / 180;
+        if (IsDrag ) {
+          MouseStart = MouseEnd;
+          MouseEnd = Input.mousePosition;
+          DeltAngle.x -= (MouseEnd.y - MouseStart.y) / 7;
+          DeltAngle.y += (MouseEnd.x - MouseStart.x) / 7;
+          if(MouseStart.x>Screen.width/2){
+              gameObject.transform.localEulerAngles = DeltAngle;
+              delt = gameObject.transform.localEulerAngles.y * PI / 180;
             deltz = gameObject.transform.localEulerAngles.x * PI / 180;
             lastDragDate = DateTime.Now;
-            Invoke("recoverCamera",2);
-            //gameObject.transform.position = FollowObject.position + new Vector3(-CameraDistence * Mathf.Sin(delt) * Mathf.Cos(deltz), CameraDistence * Mathf.Sin(deltz), -CameraDistence * Mathf.Cos(delt) * Mathf.Cos(deltz));
+          }
+          //gameObject.transform.position = FollowObject.position + new Vector3(-CameraDistence * Mathf.Sin(delt) * Mathf.Cos(deltz), CameraDistence * Mathf.Sin(deltz), -CameraDistence * Mathf.Cos(delt) * Mathf.Cos(deltz));
         }
     }
     void OnGUI() {
