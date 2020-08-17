@@ -1092,7 +1092,7 @@ public class MainPage : MonoBehaviour {
           AppUtil.roomNo = (int)res["roomNo"];
           int inTimesType = (int)res["inTimesType"];
           socketClient.onRecieveMessage = null;
-          SceneManager.LoadScene("majiang_axw");
+          SceneManager.LoadScene("game");
           Invoke("DestroyScene",1.5f);
         },()=>{
           playClick();
@@ -1156,7 +1156,7 @@ public class MainPage : MonoBehaviour {
           if(roomStatus>0){
             socketClient.onRecieveMessage = null;
             
-            SceneManager.LoadScene("majiang_axw");
+            SceneManager.LoadScene("game");
             
           }else{
             socketClient.onRecieveMessage = null;
@@ -1967,7 +1967,7 @@ public class MainPage : MonoBehaviour {
   }
 
   IEnumerator GoRoom(){
-    AsyncOperation async = Application.LoadLevelAsync("majiang_axw");
+    AsyncOperation async = Application.LoadLevelAsync("game");
     yield return async;
     Debug.Log("Loading complete");
   }
