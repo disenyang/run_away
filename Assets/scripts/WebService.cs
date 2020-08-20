@@ -12,7 +12,7 @@ using System.Threading;
 
 public class WebService{
   private static string defaultErrMsg=  "系统正在维护中";
-  private static string domain=  "http://www.xiaowanwu.cn/majiang_zxw";
+  private static string domain=  "http://www.xiaowanwu.cn/run_away";
   
   public static void post(string url,JsonData param,Transform transform,Action<JsonData> onSucess,Action<JsonData> onFaild,MonoBehaviour behaviour){
 		behaviour.StartCoroutine(SendPost(domain+url,param,transform,onSucess,onFaild));	

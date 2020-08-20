@@ -1133,7 +1133,7 @@ public class MainPage : MonoBehaviour {
 
   }
 
-  void createUserModel(){ 
+  void createUserModel(){
     if(person!=null){
       Destroy(person);
     }
@@ -1155,9 +1155,7 @@ public class MainPage : MonoBehaviour {
           backAudioSource.Pause();
           if(roomStatus>0){
             socketClient.onRecieveMessage = null;
-            
             SceneManager.LoadScene("game");
-            
           }else{
             socketClient.onRecieveMessage = null;
             SceneManager.LoadScene("Pipei");
@@ -1253,7 +1251,6 @@ public class MainPage : MonoBehaviour {
       sendButton.GetComponent<Image>().color = sendButtonDisableColor;
     }
     Invoke("Timer", 1.0f);
-    
   }
 
   // 加入房间

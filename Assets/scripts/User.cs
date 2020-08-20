@@ -108,6 +108,16 @@ public class User{
   public string hat;
   public GameObject hatObject;
 
+  //坐标位置
+  public float x;
+  public float y;
+  public float z;
+
+  //旋转位置
+  public float rx;
+  public float ry;
+  public float rz;
+
   static Majiang GetMajiang(int id,List<Majiang> allmajiangs){
     for(int i=0;i<allmajiangs.Count;i++){
 			Majiang majiang = allmajiangs[i];
@@ -217,6 +227,30 @@ public class User{
 
     if(map["hat"]!=null){
       user.hat = (string)map["hat"];
+    }
+
+    if(map["x"]!=null){
+      user.x = (int)map["x"];
+    }
+
+    if(map["y"]!=null){
+      user.y = (int)map["y"];
+    }
+
+    if(map["z"]!=null){
+      user.z = (int)map["z"];
+    }
+
+    if(map["rx"]!=null){
+      user.rx = (int)map["rx"];
+    }
+
+    if(map["ry"]!=null){
+      user.ry = (int)map["ry"];
+    }
+
+    if(map["rz"]!=null){
+      user.rz = (int)map["rz"];
     }
     
     if(map["gangOptions"]!=null){

@@ -45,7 +45,7 @@ public class SocketClient{
           } catch (Exception ex) {
             Debug.Log(ex);
           }
-          var url = "ws://139.196.40.161:"+(AppUtil.test?8082:8081)+"/majiang_zxw/websocket/majiang";
+          var url = "ws://139.196.40.161:"+(AppUtil.test?8082:8081)+"/run_away/websocket/majiang";
           Debug.Log("连接服务器:"+url);
           webSocket = new WebSocketSharp.WebSocket(url);
           var result = "";
@@ -257,6 +257,20 @@ public class SocketClient{
     json["roomNo"]= roomNo;
     SendMessage("getRoom",json,call);    
   }
+  public void sendMove(int roomNo,Vector3 position,Vector3 rotate,Action<JsonData> call){
+    JsonData json = new JsonData();
+    json["roomNo"]= roomNo;
+    json["userid"]= AppUtil.user.id;
+    json["x"]= position.x;
+    json["y"]= position.y;
+    json["z"]= position.z;
+    json["rx"]= rotate.x;
+    json["ry"]= rotate.y;
+    json["rz"]= rotate.z;
+    SendMessage("move",json,call);    
+  }
+
+  
 
 
   //同步房间
