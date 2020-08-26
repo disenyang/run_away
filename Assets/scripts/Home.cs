@@ -45,9 +45,9 @@ public class Home : MonoBehaviour {
     home = this;
     Debug.Log("pushButton:"+(pushButton==null));
     pushButton.onClick.AddListener(()=>{
-       Debug.Log("pushButton:");
-      Debug.Log("pushButton:"+mine.id);
-      playUserAnimator(mine,"A_Push");
+      socketClient.sendSkill("A_Push",(JsonData resData)=>{
+        
+      });
     });
 
     crouchButton.onClick.AddListener(()=>{
@@ -70,9 +70,10 @@ public class Home : MonoBehaviour {
       roomUsers = room.users;
       for(int i=0;i<roomUsers.Count;i++){
         User user = roomUsers[i];
-        initUserModel(user,i);
+        
         if(AppUtil.user.id==user.id){
           mine = user;
+          initUserModel(user,i);
           // transform.LookAt(user.bodyObject.transform.localPosition);
         }
       }
@@ -105,6 +106,15 @@ public class Home : MonoBehaviour {
       string userId = (string)content["user"];
       User user =  room.getUser(userId);
       playUserAnimator(user,"A_Walk");
+    }else if(cmd=="skill"){
+      //移动
+      string userId = (string)content["user"];
+      string skill = (string)content["skill"];
+      JsonData userList = content["users"];
+      setUserValues(userList,true);
+      
+      User user =  room.getUser(userId);
+      playUserAnimator(user,skill);
     }
   }
 
@@ -166,28 +176,28 @@ public class Home : MonoBehaviour {
     if(i==0){
       x = 0f;
       y = 36.1f;
-      z = 36.8f;
+      z = 80.8f;
       ry = 0;
     }else if(i==1){
       x = 20f;
       y = 36.1f;
-      z = 36.8f;
+      z = 80.8f;
       ry = 0;
     }else if(i==2){
       x = 30f;
       y = 36.1f;
-      z = 36.8f;
+      z = 80.8f;
       ry = 0;
     }else if(i==3){
       x = -20f;
       y = 36.1f;
-      z = 36.8f;
+      z = 80.8f;
       ry = 0;
     }
     
     
     user.figure = "female_majiang";
-    GameObject obj = AppUtil.createUserModel(user,"AnimatorControllers/PlayMajiangController",transform,this,new Vector3(x,y,z),new Vector3(30,30,30),new Vector3(rx,ry,0));
+    GameObject obj = AppUtil.createUserModel(user,"AnimatorControllers/PlayMajiangController",transform,this,new Vector3(x,y,z),new Vector3(10,10,10),new Vector3(rx,ry,0));
   }
   public void moveUser(User user,Vector3 move){
     Vector3 bodyPosition = user.bodyObject.transform.localPosition;
@@ -218,13 +228,11 @@ public class Home : MonoBehaviour {
       user.hatObject.transform.localPosition = new Vector3(move.x+hatObjectPosition.x,move.y+hatObjectPosition.y,move.z+hatObjectPosition.z);
     }
 
-
     // 改变摄像机的位置
     transform.localPosition = new Vector3(move.x+transform.localPosition.x,move.y+transform.localPosition.y,move.z+transform.localPosition.z);
 
-
     //移动
-    socketClient.sendMove(AppUtil.roomNo,user.bodyObject.transform.localPosition,user.bodyObject.transform.localEulerAngles,(JsonData resData)=>{
+    socketClient.sendMove(AppUtil.roomNo,bodyPosition,user.bodyObject.transform.localEulerAngles,(JsonData resData)=>{
       
     });
   }

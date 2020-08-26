@@ -181,6 +181,16 @@ public class SocketClient{
     SendMessage("hasRoom",json,call);
   }
 
+  public void sendSkill(String skill,Action< JsonData> call){
+    JsonData json = new JsonData();
+    json["roomNo"]= AppUtil.roomNo;
+    json["user"] = AppUtil.user.id;
+    json["skill"] = skill;
+    SendMessage("skill",json,call);
+  }
+
+  
+
   
 
    public void sendConnect(Action< JsonData> call){
