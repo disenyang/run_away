@@ -35,6 +35,8 @@ public class Home : MonoBehaviour {
 
   public Button pushButton; //推人动作
   public Button crouchButton;//蹲下动作
+
+  public Button jumpButton;//跳起来动作
   Room room;
   void Awake () {
     if(AppUtil.user==null){
@@ -52,6 +54,10 @@ public class Home : MonoBehaviour {
 
     crouchButton.onClick.AddListener(()=>{
       playUserAnimator(mine,"A_Crouch");
+    });
+
+    jumpButton.onClick.AddListener(()=>{
+      playUserAnimator(mine,"A_Jump");
     });
 
     // moveButton.onClick.AddListener(()=>{
@@ -73,6 +79,7 @@ public class Home : MonoBehaviour {
         
         if(AppUtil.user.id==user.id){
           mine = user;
+          Debug.Log("initUserModel===");
           initUserModel(user,i);
           // transform.LookAt(user.bodyObject.transform.localPosition);
         }
@@ -105,7 +112,7 @@ public class Home : MonoBehaviour {
       setUserValues(userList,true);
       string userId = (string)content["user"];
       User user =  room.getUser(userId);
-      playUserAnimator(user,"A_Walk");
+      playUserAnimator(user,"A_Run");
     }else if(cmd=="skill"){
       //移动
       string userId = (string)content["user"];

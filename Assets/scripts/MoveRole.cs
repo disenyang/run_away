@@ -92,7 +92,7 @@ public class MoveRole : MonoBehaviour {
 
                 userDirectionArgle = arg;
                  Home.home.rotateUser(Home.mine,(float)(arg));
-                    playUserAnimator(Home.mine,"A_Walk");
+                    playUserAnimator(Home.mine,"A_Run");
                 
                 centerImage.transform.GetComponent<RectTransform>().anchoredPosition = new Vector3(nx,ny,0);
                 touchFirst = touchSecond;
@@ -165,7 +165,7 @@ public class MoveRole : MonoBehaviour {
             float moveZ = (float)Math.Cos(userDirectionArgle*Math.PI/180.0)*1;
             Debug.Log("userDirectionArgle="+userDirectionArgle+",moveX="+moveX+",moveZ="+moveZ);
             Home.home.moveUser(Home.mine,new Vector3(moveX,0,moveZ));
-            playUserAnimator(Home.mine,"A_Walk");
+            playUserAnimator(Home.mine,"A_Run");
         }
         
     }

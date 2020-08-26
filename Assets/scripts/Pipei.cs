@@ -268,7 +268,7 @@ public class Pipei : MonoBehaviour {
         backAudioSource.Pause();
         socketClient.onRecieveMessage = null;
         
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene("game1");
         Invoke("DestroyScene",1.5f);
       }else{
         if(room.userBottom.status!=-1){
@@ -452,7 +452,7 @@ public class Pipei : MonoBehaviour {
     backAudioSource.Pause();
     socketClient.onRecieveMessage = null;
     
-    SceneManager.LoadScene("game");
+    SceneManager.LoadScene("game1");
     Invoke("DestroyScene",1.5f);
   }
 
