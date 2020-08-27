@@ -312,10 +312,10 @@ public class AppUtil{
     RuntimeAnimatorController anim = (RuntimeAnimatorController)Resources.Load(animatorUrl);//加载资源
     modelObject.GetComponent<Animator>().runtimeAnimatorController = anim;//赋值
 
-    modelObject.transform.parent = person.transform.parent;
-    modelObject.transform.localPosition = localPosition;
-    modelObject.transform.localEulerAngles = localEulerAngles;
-    modelObject.transform.localScale = localScale;
+    modelObject.transform.parent = person.transform;
+    modelObject.transform.localPosition = new Vector3(0,0,0);
+    // modelObject.transform.localEulerAngles = localEulerAngles;
+    modelObject.transform.localScale = new Vector3(1,1,1);
     return modelObject;
   }
 

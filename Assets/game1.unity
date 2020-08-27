@@ -861,9 +861,9 @@ GameObject:
   - component: {fileID: 806175699}
   - component: {fileID: 806175698}
   - component: {fileID: 806175697}
-  - component: {fileID: 806175700}
   - component: {fileID: 806175701}
   - component: {fileID: 806175702}
+  - component: {fileID: 806175700}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -945,9 +945,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 806175696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47217bc9000c54a1c80d6228b8845a12, type: 3}
+  m_Script: {fileID: 11500000, guid: 09846f3685be97e4782f29186ca0cacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centerImage: {fileID: 1191626992}
   FollowObject: {fileID: 0}
 --- !u!114 &806175701
 MonoBehaviour:
@@ -1922,7 +1923,6 @@ GameObject:
   - component: {fileID: 1987500696}
   - component: {fileID: 1987500695}
   - component: {fileID: 1987500694}
-  - component: {fileID: 1987500697}
   m_Layer: 5
   m_Name: MoveButton
   m_TagString: Untagged
@@ -2031,22 +2031,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987500692}
   m_CullTransparentMesh: 0
---- !u!114 &1987500697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987500692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09846f3685be97e4782f29186ca0cacc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetTime: 0.1
-  SlidingDistance: 80
-  centerImage: {fileID: 1191626992}
-  userDirectionArgle: 0
 --- !u!1 &2054106280
 GameObject:
   m_ObjectHideFlags: 0

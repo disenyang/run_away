@@ -39,6 +39,8 @@ public class Home : MonoBehaviour {
   public Button jumpButton;//跳起来动作
   Room room;
   void Awake () {
+    AppUtil.user = new User();
+    AppUtil.user.id="9477AB287F00000160303E2D0F6A0CED";
     if(AppUtil.user==null){
       Invoke("DestroyScene",1.5f);
       SceneManager.LoadScene("Login");
@@ -64,27 +66,30 @@ public class Home : MonoBehaviour {
     //   playUserAnimator(mine,"A_Walk");
     // });
 
-    socketClient = SocketClient.socketClient;
-    socketClient.monoBehaviour = this;
-    socketClient.transform = mainPanel.transform;
-    socketClient.onRecieveMessage = onRecieveMessage;
+    // socketClient = SocketClient.socketClient;
+    // socketClient.monoBehaviour = this;
+    // socketClient.transform = mainPanel.transform;
+    // socketClient.onRecieveMessage = onRecieveMessage;
 
-    socketClient.sendGetRoom(AppUtil.roomNo,(JsonData resData)=>{
-      JsonData roomData = (JsonData)resData["room"];
-      room = Room.toRoom(roomData,new List<Majiang>());
-      dealRoom();
-      roomUsers = room.users;
-      for(int i=0;i<roomUsers.Count;i++){
-        User user = roomUsers[i];
-        
-        if(AppUtil.user.id==user.id){
-          mine = user;
-          Debug.Log("initUserModel===");
-          initUserModel(user,i);
-          // transform.LookAt(user.bodyObject.transform.localPosition);
-        }
-      }
-    });
+    // socketClient.sendGetRoom(3174,(JsonData resData)=>{
+    //   JsonData roomData = (JsonData)resData["room"];
+    //   room = Room.toRoom(roomData,new List<Majiang>());
+    //   dealRoom();
+    //   roomUsers = room.users;
+    //   for(int i=0;i<roomUsers.Count;i++){
+    //     User user = roomUsers[i];
+    //     Debug.Log("initUserModel==="+user.id);
+    //     if(AppUtil.user.id==user.id){
+    //       mine = user;
+          
+    //       initUserModel(user,i);
+    //       // transform.LookAt(user.bodyObject.transform.localPosition);
+    //     }
+    //   }
+    // });
+
+    mine = AppUtil.user;
+    initUserModel(AppUtil.user,0);
 
 
     
@@ -210,30 +215,30 @@ public class Home : MonoBehaviour {
     Vector3 bodyPosition = user.bodyObject.transform.localPosition;
     user.bodyObject.transform.localPosition = new Vector3(move.x+bodyPosition.x,move.y+bodyPosition.y,move.z+bodyPosition.z);
 
-    if(user.upperObject!=null){
-      Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
-      user.upperObject.transform.localPosition = new Vector3(move.x+upperObjectPosition.x,move.y+upperObjectPosition.y,move.z+upperObjectPosition.z);
-    }
+    // if(user.upperObject!=null){
+    //   Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
+    //   user.upperObject.transform.localPosition = new Vector3(move.x+upperObjectPosition.x,move.y+upperObjectPosition.y,move.z+upperObjectPosition.z);
+    // }
 
-    if(user.trousersObject!=null){
-      Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
-      user.trousersObject.transform.localPosition = new Vector3(move.x+trousersObjectPosition.x,move.y+trousersObjectPosition.y,move.z+trousersObjectPosition.z);
-    }
+    // if(user.trousersObject!=null){
+    //   Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
+    //   user.trousersObject.transform.localPosition = new Vector3(move.x+trousersObjectPosition.x,move.y+trousersObjectPosition.y,move.z+trousersObjectPosition.z);
+    // }
 
-    if(user.shoesObject!=null){
-      Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
-      user.shoesObject.transform.localPosition = new Vector3(move.x+shoesObjectPosition.x,move.y+shoesObjectPosition.y,move.z+shoesObjectPosition.z);
-    }
+    // if(user.shoesObject!=null){
+    //   Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
+    //   user.shoesObject.transform.localPosition = new Vector3(move.x+shoesObjectPosition.x,move.y+shoesObjectPosition.y,move.z+shoesObjectPosition.z);
+    // }
 
-    if(user.hairObject!=null){
-      Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
-      user.hairObject.transform.localPosition = new Vector3(move.x+hairObjectPosition.x,move.y+hairObjectPosition.y,move.z+hairObjectPosition.z);
-    }
+    // if(user.hairObject!=null){
+    //   Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
+    //   user.hairObject.transform.localPosition = new Vector3(move.x+hairObjectPosition.x,move.y+hairObjectPosition.y,move.z+hairObjectPosition.z);
+    // }
 
-    if(user.hatObject!=null){
-      Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
-      user.hatObject.transform.localPosition = new Vector3(move.x+hatObjectPosition.x,move.y+hatObjectPosition.y,move.z+hatObjectPosition.z);
-    }
+    // if(user.hatObject!=null){
+    //   Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
+    //   user.hatObject.transform.localPosition = new Vector3(move.x+hatObjectPosition.x,move.y+hatObjectPosition.y,move.z+hatObjectPosition.z);
+    // }
 
     // 改变摄像机的位置
     transform.localPosition = new Vector3(move.x+transform.localPosition.x,move.y+transform.localPosition.y,move.z+transform.localPosition.z);
@@ -249,57 +254,57 @@ public class Home : MonoBehaviour {
     Vector3 bodyPosition = user.bodyObject.transform.localPosition;
     user.bodyObject.transform.localPosition = postion;
 
-    if(user.upperObject!=null){
-      Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
-      user.upperObject.transform.localPosition = postion;
-    }
+    // if(user.upperObject!=null){
+    //   Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
+    //   user.upperObject.transform.localPosition = postion;
+    // }
 
-    if(user.trousersObject!=null){
-      Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
-      user.trousersObject.transform.localPosition = postion;
-    }
+    // if(user.trousersObject!=null){
+    //   Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
+    //   user.trousersObject.transform.localPosition = postion;
+    // }
 
-    if(user.shoesObject!=null){
-      Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
-      user.shoesObject.transform.localPosition = postion;
-    }
+    // if(user.shoesObject!=null){
+    //   Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
+    //   user.shoesObject.transform.localPosition = postion;
+    // }
 
-    if(user.hairObject!=null){
-      Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
-      user.hairObject.transform.localPosition = postion;
-    }
+    // if(user.hairObject!=null){
+    //   Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
+    //   user.hairObject.transform.localPosition = postion;
+    // }
 
-    if(user.hatObject!=null){
-      Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
-      user.hatObject.transform.localPosition = postion;
-    }
+    // if(user.hatObject!=null){
+    //   Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
+    //   user.hatObject.transform.localPosition = postion;
+    // }
 
     user.bodyObject.transform.localEulerAngles = rotate;
 
-    if(user.upperObject!=null){
-      Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
-      user.upperObject.transform.localEulerAngles = rotate;
-    }
+    // if(user.upperObject!=null){
+    //   Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
+    //   user.upperObject.transform.localEulerAngles = rotate;
+    // }
 
-    if(user.trousersObject!=null){
-      Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
-      user.trousersObject.transform.localEulerAngles = rotate;
-    }
+    // if(user.trousersObject!=null){
+    //   Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
+    //   user.trousersObject.transform.localEulerAngles = rotate;
+    // }
 
-    if(user.shoesObject!=null){
-      Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
-      user.shoesObject.transform.localEulerAngles = rotate;
-    }
+    // if(user.shoesObject!=null){
+    //   Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
+    //   user.shoesObject.transform.localEulerAngles = rotate;
+    // }
 
-    if(user.hairObject!=null){
-      Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
-      user.hairObject.transform.localEulerAngles = rotate;
-    }
+    // if(user.hairObject!=null){
+    //   Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
+    //   user.hairObject.transform.localEulerAngles = rotate;
+    // }
 
-    if(user.hatObject!=null){
-      Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
-      user.hatObject.transform.localEulerAngles = rotate;
-    }
+    // if(user.hatObject!=null){
+    //   Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
+    //   user.hatObject.transform.localEulerAngles = rotate;
+    // }
 
   }
 
@@ -308,30 +313,30 @@ public class Home : MonoBehaviour {
     Vector3 bodyPosition = user.bodyObject.transform.localPosition;
     user.bodyObject.transform.localEulerAngles = new Vector3(0,argle,0);
 
-    if(user.upperObject!=null){
-      Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
-      user.upperObject.transform.localEulerAngles = new Vector3(0,argle,0);
-    }
+    // if(user.upperObject!=null){
+    //   Vector3 upperObjectPosition = user.upperObject.transform.localPosition;
+    //   user.upperObject.transform.localEulerAngles = new Vector3(0,argle,0);
+    // }
 
-    if(user.trousersObject!=null){
-      Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
-      user.trousersObject.transform.localEulerAngles = new Vector3(0,argle,0);
-    }
+    // if(user.trousersObject!=null){
+    //   Vector3 trousersObjectPosition = user.trousersObject.transform.localPosition;
+    //   user.trousersObject.transform.localEulerAngles = new Vector3(0,argle,0);
+    // }
 
-    if(user.shoesObject!=null){
-      Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
-      user.shoesObject.transform.localEulerAngles = new Vector3(0,argle,0);
-    }
+    // if(user.shoesObject!=null){
+    //   Vector3 shoesObjectPosition = user.shoesObject.transform.localPosition;
+    //   user.shoesObject.transform.localEulerAngles = new Vector3(0,argle,0);
+    // }
 
-    if(user.hairObject!=null){
-      Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
-      user.hairObject.transform.localEulerAngles = new Vector3(0,argle,0);
-    }
+    // if(user.hairObject!=null){
+    //   Vector3 hairObjectPosition = user.hairObject.transform.localPosition;
+    //   user.hairObject.transform.localEulerAngles = new Vector3(0,argle,0);
+    // }
 
-    if(user.hatObject!=null){
-      Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
-      user.hatObject.transform.localEulerAngles = new Vector3(0,argle,0);
-    }
+    // if(user.hatObject!=null){
+    //   Vector3 hatObjectPosition = user.hatObject.transform.localPosition;
+    //   user.hatObject.transform.localEulerAngles = new Vector3(0,argle,0);
+    // }
 
   }
   
