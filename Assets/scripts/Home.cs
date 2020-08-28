@@ -33,7 +33,7 @@ public class Home : MonoBehaviour {
 
   public GameObject mainPanel;
 
-  public Button pushButton; //推人动作
+  public Button dunxiaButton; //蹲下动作
   public Button crouchButton;//蹲下动作
 
   public Button jumpButton;//跳起来动作
@@ -47,8 +47,9 @@ public class Home : MonoBehaviour {
       return;
     }
     home = this;
-    Debug.Log("pushButton:"+(pushButton==null));
-    pushButton.onClick.AddListener(()=>{
+    Debug.Log("pushButton:"+(dunxiaButton==null));
+    dunxiaButton.onClick.AddListener(()=>{
+      playUserAnimator(mine,"A_Dunxia");
       socketClient.sendSkill("A_Push",(JsonData resData)=>{
         
       });
@@ -60,6 +61,7 @@ public class Home : MonoBehaviour {
 
     jumpButton.onClick.AddListener(()=>{
       playUserAnimator(mine,"A_Jump");
+      moveUser(mine,new Vector3(0,5,0));
     });
 
     // moveButton.onClick.AddListener(()=>{
@@ -367,6 +369,11 @@ public class Home : MonoBehaviour {
     }
     
   }
+  
+  void FixedUpdate(){
+    Rigidbody rigidbody = AppUtil.user.bodyObject.GetComponent<Rigidbody> ();
+    //rigidbody.velocity = new Vector3(0, 0, 0);
+  }
   void rotateRight()
   {
     //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y-2, transform.localEulerAngles.z);
@@ -374,6 +381,11 @@ public class Home : MonoBehaviour {
   }
   private void OnGUI()
     {
+      if (Input.GetKeyDown (KeyCode.J))
+      {
+        playUserAnimator(mine,"A_Jump");
+        moveUser(mine,new Vector3(0,5,0));
+      }  
       // print("执行了方法!");
       //   if (GUI.Button(new Rect(0, 0, 60, 20), "按钮"))
       //   {

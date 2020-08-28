@@ -54,9 +54,66 @@ public class MoveRole : MonoBehaviour {
         area1.points.Add(new Vector3(194,13,2058));
         area1.points.Add(new Vector3(-441,13,2058));
         forbiddenAreas.Add(area1);
+        {   
+            //test
+            // userDirectionArgle = 0;
+            // moving = true;
+            // move();
+        }
+        
+       
     }
+
     void OnGUI()   // 滑动方法02
     {
+        if (Input.GetKeyDown (KeyCode.W))
+        {
+            //test
+            userDirectionArgle = 0;
+            moving = true;
+            moveOnce();
+        }    
+        if (Input.GetKeyUp (KeyCode.W))
+        {
+            moving = false;
+        }
+
+        if (Input.GetKeyDown (KeyCode.A))
+        {
+            //test
+            userDirectionArgle = 270;
+            moving = true;
+            moveOnce();
+        }    
+        if (Input.GetKeyUp (KeyCode.A))
+        {
+            moving = false;
+        }
+
+        if (Input.GetKeyDown (KeyCode.D))
+        {
+            //test
+            userDirectionArgle = 90;
+            moving = true;
+            moveOnce();
+        }    
+        if (Input.GetKeyUp (KeyCode.D))
+        {
+            moving = false;
+        }
+
+        if (Input.GetKeyDown (KeyCode.X))
+        {
+            //test
+            userDirectionArgle = 180;
+            moving = true;
+            moveOnce();
+        }    
+        if (Input.GetKeyUp (KeyCode.X))
+        {
+            moving = false;
+        }
+
         if (Event.current.type == EventType.MouseDown) {
             MouseEnd = Input.mousePosition;
             if(Input.mousePosition.x>Screen.width/2){
@@ -193,13 +250,17 @@ public class MoveRole : MonoBehaviour {
     void move(){
         Invoke("move",0.03f);
         if(moving){
-            float moveX = (float)Math.Sin(userDirectionArgle*Math.PI/180.0)*0.7f;
-            float moveZ = (float)Math.Cos(userDirectionArgle*Math.PI/180.0)*0.7f;
-            Debug.Log("userDirectionArgle="+userDirectionArgle+",moveX="+moveX+",moveZ="+moveZ);
-            Home.home.moveUser(Home.mine,new Vector3(moveX,0,moveZ));
-            playUserAnimator(Home.mine,"A_Run");
+            moveOnce();
         }
         
+    }
+
+    void moveOnce(){
+        float moveX = (float)Math.Sin(userDirectionArgle*Math.PI/180.0)*0.7f;
+        float moveZ = (float)Math.Cos(userDirectionArgle*Math.PI/180.0)*0.7f;
+        Debug.Log("userDirectionArgle="+userDirectionArgle+",moveX="+moveX+",moveZ="+moveZ);
+        Home.home.moveUser(Home.mine,new Vector3(moveX,0,moveZ));
+        playUserAnimator(Home.mine,"A_Run");
     }
 
 
