@@ -381,6 +381,8 @@ public class Home : MonoBehaviour {
   }
   private void OnGUI()
     {
+      // transform.localPosition = new Vector3(mine.bodyObject.transform.localPosition.x,mine.bodyObject.transform.localPosition.y+50,mine.bodyObject.transform.localPosition.z-78);
+
       if (Input.GetKeyDown (KeyCode.J))
       {
         playUserAnimator(mine,"A_Jump");
